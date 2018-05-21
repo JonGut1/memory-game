@@ -1,18 +1,20 @@
-let timer = 0;
-let score = 0;
-let stars = 3;
-let int = 0;
-let counting = 0;
-let moves = 0;
-let timesPlayed = 0;
-let lengthStor = 0;
-let gameLength = 0;
-let matched = 0;
-let inRow = 0;
-let cards = [];
-let matches = [];
-let targets = [];
-let keyCode;
+'use strict';
+
+var timer = 0;
+var score = 0;
+var stars = 3;
+var int = 0;
+var counting = 0;
+var moves = 0;
+var timesPlayed = 0;
+var lengthStor = 0;
+var gameLength = 0;
+var matched = 0;
+var inRow = 0;
+var cards = [];
+var matches = [];
+var targets = [];
+var keyCode = void 0;
 
 cardsArr();
 startScreen();
@@ -25,37 +27,37 @@ winningScreen();
 
 */
 function startScreen() {
-	const cont = document.querySelector('.container_2');
+	var cont = document.querySelector('.container_2');
 	document.querySelector('.score_tab').style.visibility = "hidden";
 
-	const table = document.createElement('div');
+	var table = document.createElement('div');
 	table.classList.add('start');
 	cont.appendChild(table);
 	table.style.display = "block";
 
-	const text = document.createElement('p');
+	var text = document.createElement('p');
 	text.classList.add('text');
 	text.textContent = "Press 'START' to play the game";
 	table.appendChild(text);
 
-	const restar = document.createElement('div');
+	var restar = document.createElement('div');
 	restar.classList.add('buttonCont');
 	table.appendChild(restar);
 
-	const staButton = document.createElement('button');
+	var staButton = document.createElement('button');
 	staButton.classList.add('staButton');
 	staButton.innerHTML = "START";
 	restar.appendChild(staButton);
-	staButton.addEventListener('click', function() {
+	staButton.addEventListener('click', function () {
 		hideStart();
 		beginGame();
 	});
 
-	const highButtons = document.createElement('button');
+	var highButtons = document.createElement('button');
 	highButtons.classList.add('highButton');
 	highButtons.innerHTML = "Highscores";
 	restar.appendChild(highButtons);
-	highButtons.addEventListener('click', function() {
+	highButtons.addEventListener('click', function () {
 		showHighSc();
 	});
 }
@@ -66,64 +68,64 @@ function startScreen() {
 
 */
 function winningScreen() {
-	const cont = document.querySelector('.container_2');
+	var cont = document.querySelector('.container_2');
 	document.querySelector('.score_tab').style.visibility = "hidden";
 
-	const modal = document.createElement('div');
+	var modal = document.createElement('div');
 	modal.classList.add('modal');
 	cont.appendChild(modal);
 	modal.style.display = "none";
 
-	const tableWin = document.createElement('div');
+	var tableWin = document.createElement('div');
 	tableWin.classList.add('winning');
 	modal.appendChild(tableWin);
 
-	const texts = document.createElement('span');
+	var texts = document.createElement('span');
 	texts.classList.add('text');
 	texts.textContent = "Congratulations, you won the game";
 	tableWin.appendChild(texts);
 
-	const infoDiv = document.createElement('div');
+	var infoDiv = document.createElement('div');
 	infoDiv.classList.add('infoDiv');
 	tableWin.appendChild(infoDiv);
 
-	const inputDiv = document.createElement('div');
+	var inputDiv = document.createElement('div');
 	inputDiv.classList.add('inputDiv');
 	tableWin.appendChild(inputDiv);
 
-	const name = document.createElement('input');
+	var name = document.createElement('input');
 	name.classList.add('name_style');
 	name.placeholder = "Name";
 	inputDiv.appendChild(name);
-	name.addEventListener('keydown', function(e) {
+	name.addEventListener('keydown', function (e) {
 		keyCode = e.keyCode;
 		if (e.keyCode == 13 || e.which == 13) {
 			submiting();
 		}
 	});
 
-	const submit = document.createElement('button');
+	var submit = document.createElement('button');
 	submit.classList.add('submit');
 	submit.textContent = "Submit";
 	inputDiv.appendChild(submit);
-	submit.addEventListener('click', function() {
+	submit.addEventListener('click', function () {
 		submiting();
 	});
 
-	const resta = document.createElement('div');
+	var resta = document.createElement('div');
 	resta.classList.add('buttonWin');
 	tableWin.appendChild(resta);
 
-	const highButton = document.createElement('button');
+	var highButton = document.createElement('button');
 	highButton.className = 'hi highButton';
 	highButton.innerHTML = "Highscores";
 	resta.appendChild(highButton);
 	highButton.addEventListener('click', showHighSc);
 
-	const restart = document.createElement('i');
+	var restart = document.createElement('i');
 	restart.className = 'fa fa-repeat';
 	resta.appendChild(restart);
-	restart.addEventListener('click', function() {
+	restart.addEventListener('click', function () {
 		hideShowWinning();
 		hideHighSc();
 		beginGame();
@@ -136,32 +138,32 @@ function winningScreen() {
 
 */
 function highscoreScreen() {
-	const cont = document.querySelector('.container_2');
+	var cont = document.querySelector('.container_2');
 	document.querySelector('.score_tab').style.visibility = "hidden";
 
-	const divCont = document.createElement('div');
+	var divCont = document.createElement('div');
 	divCont.classList.add('highCont');
 	cont.appendChild(divCont);
 	divCont.style.display = "none";
 
-	const topCont = document.createElement('div');
+	var topCont = document.createElement('div');
 	topCont.classList.add('topCont');
 	divCont.appendChild(topCont);
 
-	const backB = document.createElement('button');
+	var backB = document.createElement('button');
 	backB.classList.add('backB');
 	backB.innerHTML = "Back";
 	topCont.appendChild(backB);
-	backB.addEventListener('click', function() {
+	backB.addEventListener('click', function () {
 		hideHighSc();
 	});
 
-	const paragraph = document.createElement('p')
+	var paragraph = document.createElement('p');
 	paragraph.classList.add('highText');
 	paragraph.innerHTML = "Name - Score - Stars - Time";
 	topCont.appendChild(paragraph);
 
-	const uList = document.createElement('ul');
+	var uList = document.createElement('ul');
 	uList.classList.add('leaderListUL');
 	divCont.appendChild(uList);
 }
@@ -172,7 +174,7 @@ function highscoreScreen() {
 
 */
 function hideStart() {
-	const start = document.querySelector('.start');
+	var start = document.querySelector('.start');
 	start.style.display = "none";
 }
 
@@ -182,7 +184,7 @@ function hideStart() {
 
 */
 function showStart() {
-	const start = document.querySelector('.start');
+	var start = document.querySelector('.start');
 	start.style.display = "block";
 	hideTab();
 	resetStars();
@@ -194,17 +196,17 @@ function showStart() {
 
 */
 function showHighSc() {
-	const highSc = document.querySelector('.highCont');
+	var highSc = document.querySelector('.highCont');
 	highSc.style.display = "block";
-	const local = localStorage.TimesPlayed;
-	const localInt = parseInt(local);
+	var local = localStorage.TimesPlayed;
+	var localInt = parseInt(local);
 
-	for (let i = localInt; i >= 1; i--) {
-		const list = document.createElement('li');
+	for (var i = localInt; i >= 1; i--) {
+		var list = document.createElement('li');
 		list.classList.add('leaderList');
 		list.textContent = localStorage[i];
 		document.querySelector('.leaderListUL').appendChild(list);
-		}
+	}
 	hideTab();
 }
 
@@ -214,11 +216,11 @@ function showHighSc() {
 
 */
 function hideHighSc() {
-	const highSc = document.querySelector('.highCont');
+	var highSc = document.querySelector('.highCont');
 	highSc.style.display = "none";
-	const removeList = document.querySelectorAll('.leaderList');
+	var removeList = document.querySelectorAll('.leaderList');
 
-	for (let i = 0; i < removeList.length; i++) {
+	for (var i = 0; i < removeList.length; i++) {
 		removeList[i].remove();
 	}
 }
@@ -229,15 +231,13 @@ function hideHighSc() {
 
 */
 function hideShowWinning() {
-	const win = document.querySelector('.modal');
-	const infoDiv = document.querySelector('.infoDiv');
+	var win = document.querySelector('.modal');
+	var infoDiv = document.querySelector('.infoDiv');
 	if (win.style.display === "none") {
 		finalScore();
-		const info = document.createElement('span');
+		var info = document.createElement('span');
 		info.classList.add("clockText");
-		info.innerHTML = "Play time: " + timer + " sec. \<br\>" + "Your score is: " +
-		score + "." + "\<br\>" + "Stars: " +
-		stars + "." + "\<br\>" + "Total moves: " + moves + ".";
+		info.innerHTML = "Play time: " + timer + " sec. \<br\>" + "Your score is: " + score + "." + "\<br\>" + "Stars: " + stars + "." + "\<br\>" + "Total moves: " + moves + ".";
 		infoDiv.appendChild(info);
 		win.style.display = "block";
 	} else if (win.style.display === "block") {
@@ -252,15 +252,15 @@ function hideShowWinning() {
 
 */
 function winning() {
-		stopTimers();
-		finalScore();
-		resetStars();
-		hideTab();
-		hideShowWinning();
-		const input = document.querySelector('.name_style');
-		input.value = "";
-		input.disabled = false;
-		document.querySelector('.submit').style.visibility = "visible";
+	stopTimers();
+	finalScore();
+	resetStars();
+	hideTab();
+	hideShowWinning();
+	var input = document.querySelector('.name_style');
+	input.value = "";
+	input.disabled = false;
+	document.querySelector('.submit').style.visibility = "visible";
 }
 
 /**
@@ -269,8 +269,8 @@ function winning() {
 
 */
 function cardsArr() {
-	const deck = document.getElementsByClassName('card');
-	for (let i = 0; i < deck.length; i++) {
+	var deck = document.getElementsByClassName('card');
+	for (var i = 0; i < deck.length; i++) {
 		cards.push(deck[i]);
 	}
 }
@@ -283,15 +283,16 @@ function cardsArr() {
 
 */
 function evaluate(elem) {
-	const childr = elem.firstElementChild;
+	var childr = elem.firstElementChild;
 	targets.push(childr.firstElementChild.className); //pushing class name of the clicked element into the array
 	matches.push(elem); //pushing the whole element into an array
 
-	if (targets.length === 1 ) {
+	if (targets.length === 1) {
 		matches[0].className += " flip";
-	} else if (targets.length === 2) { //when targets array has a length of 2
-			matches[1].className += " flip";
-			moves += 1;
+	} else if (targets.length === 2) {
+		//when targets array has a length of 2
+		matches[1].className += " flip";
+		moves += 1;
 		if (targets[0] === targets[1]) {
 			matches[0].style.visibility = "hidden";
 			matches[1].style.visibility = "hidden";
@@ -301,9 +302,9 @@ function evaluate(elem) {
 			addingStars(); //adding stars
 		} else if (targets[0] != targets[1]) {
 			inRow = 0;
-			let first = matches[0];
-			let second = matches[1];
-			setTimeout(function() {
+			var first = matches[0];
+			var second = matches[1];
+			setTimeout(function () {
 				first.classList.toggle("flip");
 				second.classList.toggle("flip");
 			}, 700);
@@ -321,16 +322,14 @@ function evaluate(elem) {
 
 */
 function dealCards() {
-	const cont = document.querySelector('.container_2');
-	let ulCont = document.createElement('ul');
+	var cont = document.querySelector('.container_2');
+	var ulCont = document.createElement('ul');
 	ulCont.classList.add('deck');
 	cont.appendChild(ulCont);
 	/**
-
-	* @description Pushes the cards elements into the card array
-
-	*/
-	for (let i = 0; i<=15; i++) {
+ 	* @description Pushes the cards elements into the card array
+ 	*/
+	for (var i = 0; i <= 15; i++) {
 		ulCont.appendChild(cards[i]);
 	}
 }
@@ -368,40 +367,33 @@ function beginGame() {
 
 */
 function click() {
-	const allDeck = document.querySelector('.deck');
+	var allDeck = document.querySelector('.deck');
 	/**
-
-	* @description Adds the clicked element mouse event
-
-	* @param {object} event - The mouse event of the clicked card
-
-	*/
-	allDeck.addEventListener('click', function(event) {
-	if (event.target.className === "card") {
-		evaluate(event.target);
+ 	* @description Adds the clicked element mouse event
+ 	* @param {object} event - The mouse event of the clicked card
+ 	*/
+	allDeck.addEventListener('click', function (event) {
+		if (event.target.className === "card") {
+			evaluate(event.target);
 		}
-});
+	});
 	/**
-
-	* @description Making the restart button clickable
-
-	*/
-	const restart = document.querySelector('.pa');
-	restart.addEventListener('click', function() {
-		for (let i = 0; i < cards.length; i++) {
-		cards[i].style.visibility = "visible";
-		cards[i].className = "card";
-	}
+ 	* @description Making the restart button clickable
+ 	*/
+	var restart = document.querySelector('.pa');
+	restart.addEventListener('click', function () {
+		for (var i = 0; i < cards.length; i++) {
+			cards[i].style.visibility = "visible";
+			cards[i].className = "card";
+		}
 		stopTimers();
 		beginGame();
 	});
 	/**
-
-	* @description Making the menu button clickable
-
-	*/
-	const menu = document.querySelector('.menu');
-	menu.addEventListener('click', function() {
+ 	* @description Making the menu button clickable
+ 	*/
+	var menu = document.querySelector('.menu');
+	menu.addEventListener('click', function () {
 		stopTimers();
 		showStart();
 	});
@@ -413,16 +405,18 @@ function click() {
 
 */
 function shuffle() {
-    let currentIndex = cards.length, temporaryValue, randomIndex;
+	var currentIndex = cards.length,
+	    temporaryValue = void 0,
+	    randomIndex = void 0;
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = cards[currentIndex];
-        cards[currentIndex] = cards[randomIndex];
-        cards[randomIndex] = temporaryValue;
-    }
-    return cards;
+	while (currentIndex !== 0) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+		temporaryValue = cards[currentIndex];
+		cards[currentIndex] = cards[randomIndex];
+		cards[randomIndex] = temporaryValue;
+	}
+	return cards;
 }
 
 /**
@@ -432,7 +426,7 @@ function shuffle() {
 */
 function removeCards() {
 	document.querySelector('.deck').remove();
-	for (let i = 0; i < cards.length; i++) {
+	for (var i = 0; i < cards.length; i++) {
 		cards[i].style.visibility = "visible";
 		cards[i].className = "card";
 	}
@@ -446,7 +440,7 @@ function removeCards() {
 function gameLe() {
 	gameLength = cards.length / 2;
 	if (gameLength === matched) {
-		setTimeout(function() {
+		setTimeout(function () {
 			winning();
 		}, 1000);
 	}
@@ -475,18 +469,18 @@ function scoring() {
 
 */
 function finalScore() {
-	const staCoun = document.querySelector(".starsDisp");
-	for (let i = 0; i <= 2; i++) {
+	var staCoun = document.querySelector(".starsDisp");
+	for (var i = 0; i <= 2; i++) {
 		if (staCoun.children[i].style.visibility === "visible") {
-		score += 30;
+			score += 30;
 		}
 	}
-	const bonusSc = 100 - moves;
+	var bonusSc = 100 - moves;
 	score += bonusSc;
-	const bonusTim = 100 - timer;
+	var bonusTim = 100 - timer;
 	if (bonusTim <= 1) {
-		score += 1
-	} else if (bonusTim >=1) {
+		score += 1;
+	} else if (bonusTim >= 1) {
 		score += bonusTim;
 	}
 	score += stars * 10;
@@ -498,10 +492,10 @@ function finalScore() {
 
 */
 function starsSyst() {
-	const staRem = document.querySelector(".starsDisp");
+	var staRem = document.querySelector(".starsDisp");
 
 	if (moves === 10 || moves === 20 || moves === 30) {
-		 if (staRem.children[2].style.visibility === "hidden" && staRem.children[1].style.visibility === "visible") {
+		if (staRem.children[2].style.visibility === "hidden" && staRem.children[1].style.visibility === "visible") {
 			staRem.children[1].style.visibility = "hidden";
 			stars -= 1;
 		} else if (staRem.children[2].style.visibility === "visible") {
@@ -517,17 +511,17 @@ function starsSyst() {
 
 */
 function addingStars() {
-	const staAdd = document.querySelector(".starsDisp");
+	var staAdd = document.querySelector(".starsDisp");
 	if (inRow === 2) {
 		if (stars === 3) {
 			stars = 3;
 		} else {
 			stars += 1;
 		}
-		for (let i = 0; i <= 2; i++) {
-		if (staAdd.children[i].style.visibility === "hidden") {
-		staAdd.children[i].style.visibility = "visible";
-		break;
+		for (var i = 0; i <= 2; i++) {
+			if (staAdd.children[i].style.visibility === "hidden") {
+				staAdd.children[i].style.visibility = "visible";
+				break;
 			}
 		}
 	} else if (inRow === 3) {
@@ -536,9 +530,9 @@ function addingStars() {
 		} else {
 			stars += 1;
 		}
-		for (let i = 0; i <= 2; i++) {
-		if (staAdd.children[i].style.visibility === "hidden") {
-		staAdd.children[i].style.visibility = "visible";
+		for (var _i = 0; _i <= 2; _i++) {
+			if (staAdd.children[_i].style.visibility === "hidden") {
+				staAdd.children[_i].style.visibility = "visible";
 			}
 		}
 	}
@@ -558,14 +552,13 @@ function submiting() {
 	} else {
 		timesPlayed = 0;
 		timesPlayed += 1;
-		const stringNum = localStorage.TimesPlayed;
+		var stringNum = localStorage.TimesPlayed;
 		int = parseInt(stringNum);
 		timesPlayed += int;
 		localStorage.setItem("TimesPlayed", timesPlayed);
 	}
-	const input = document.querySelector(".name_style").value;
-	localStorage.setItem(timesPlayed, input + "-" + score + " points" + "-" +
-		stars + " stars" + "-" + timer + " sec" + "-" + moves + " moves");
+	var input = document.querySelector(".name_style").value;
+	localStorage.setItem(timesPlayed, input + "-" + score + " points" + "-" + stars + " stars" + "-" + timer + " sec" + "-" + moves + " moves");
 	document.querySelector(".name_style").disabled = true;
 }
 
@@ -575,7 +568,7 @@ function submiting() {
 
 */
 function timers() {
-	counting = setInterval(function() {
+	counting = setInterval(function () {
 		timer += 1;
 		timeDisp();
 	}, 1000);
@@ -596,8 +589,8 @@ function stopTimers() {
 
 */
 function countMoves() {
-	const mov = document.querySelector('.moves');
-	mov.innerHTML = moves + ( moves === 1 ? " move": " moves");
+	var mov = document.querySelector('.moves');
+	mov.innerHTML = moves + (moves === 1 ? " move" : " moves");
 	starsSyst();
 }
 
@@ -607,8 +600,8 @@ function countMoves() {
 
 */
 function resetStars() {
-	const staRem = document.querySelector(".starsDisp");
-	for (let i = 0; i < staRem.children.length; i++) {
+	var staRem = document.querySelector(".starsDisp");
+	for (var i = 0; i < staRem.children.length; i++) {
 		staRem.children[i].style.visibility = "hidden";
 	}
 }
@@ -619,8 +612,8 @@ function resetStars() {
 
 */
 function showStars() {
-	const staRem = document.querySelector(".starsDisp");
-	for (let i = 0; i < staRem.children.length; i++) {
+	var staRem = document.querySelector(".starsDisp");
+	for (var i = 0; i < staRem.children.length; i++) {
 		staRem.children[i].style.visibility = "visible";
 	}
 }
@@ -649,6 +642,6 @@ function showTab() {
 
 */
 function timeDisp() {
-	const timeDisp = document.querySelector('.timeDisp');
+	var timeDisp = document.querySelector('.timeDisp');
 	timeDisp.innerHTML = timer;
 }
