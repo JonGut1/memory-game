@@ -6,7 +6,7 @@ var stars = 3;
 var int = 0;
 var counting = 0;
 var moves = 0;
-var timesPlayed = 0;
+var timesPlayed = 999;
 var lengthStor = 0;
 var gameLength = 0;
 var matched = 0;
@@ -201,7 +201,7 @@ function showHighSc() {
 	var local = localStorage.TimesPlayedFirst;
 	var localInt = parseInt(local);
 
-	for (var i = localInt; i >= 1; i--) {
+	for (var i = localInt; i >= 1000; i--) {
 		var list = document.createElement('li');
 		list.classList.add('leaderList');
 		list.textContent = localStorage[i];
@@ -545,14 +545,12 @@ function addingStars() {
 */
 function submiting() {
 	document.querySelector('.submit').style.visibility = "hidden";
-	lengthStor = localStorage.length;
-	if (lengthStor === 0) {
+	lengthStor = localStorage.TimesPlayedFirst;
+	if (localStorage.TimesPlayedFirst === undefined) {
 		timesPlayed += 1;
-		var randomNum = Math.floor(Math.random() * 9000000) + 1000000;
-		var nameDa = randomNum + "TimesPlayed";
 		localStorage.setItem("TimesPlayedFirst", timesPlayed);
 	} else {
-		timesPlayed = 0;
+		timesPlayed = 999;
 		timesPlayed += 1;
 		var stringNum = localStorage.TimesPlayedFirst;
 		int = parseInt(stringNum);
