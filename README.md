@@ -14,6 +14,8 @@
 
 The project called "memory game" works by matching two cards with the same icon on there backs. When a player clicks the card, it flips and shows the hidden icon. When the player has matched all of the cards he wins the game
 
+Note: if any errors occur with highscores please clear your local storage, so that any duplicate that might have caused some problems would be removed.
+
 ## Mechanics
 
 The player is able to click the card at any time, the card is then fliped. If the two clicked cards do not match they flip again to hide the icons. If the cards do match, then they disappear and the player gets a certain amount of points.
