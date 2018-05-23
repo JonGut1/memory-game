@@ -555,7 +555,7 @@ function submiting() {
 		var stringNum = localStorage.TimesPlayedFirst;
 		int = parseInt(stringNum);
 		timesPlayed += int;
-		localStorage.setItem("TimesPlayed", timesPlayed);
+		localStorage.setItem("TimesPlayedFirst", timesPlayed);
 	}
 	var input = document.querySelector(".name_style").value;
 	localStorage.setItem(timesPlayed, input + "-" + score + " points" + "-" + stars + " stars" + "-" + timer + " sec" + "-" + moves + " moves");
