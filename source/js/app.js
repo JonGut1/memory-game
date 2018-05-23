@@ -196,7 +196,7 @@ function showStart() {
 function showHighSc() {
 	const highSc = document.querySelector('.highCont');
 	highSc.style.display = "block";
-	const local = localStorage.TimesPlayed;
+	const local = localStorage.TimesPlayedFirst;
 	const localInt = parseInt(local);
 
 	for (let i = localInt; i >= 1; i--) {
@@ -554,11 +554,13 @@ function submiting() {
 	lengthStor = localStorage.length;
 	if (lengthStor === 0) {
 		timesPlayed += 1;
-		localStorage.setItem("TimesPlayed", timesPlayed);
+		const randomNum = Math.floor(Math.random() * 9000000) + 1000000;
+		const nameDa = randomNum + "TimesPlayed";
+		localStorage.setItem("TimesPlayedFirst", timesPlayed);
 	} else {
 		timesPlayed = 0;
 		timesPlayed += 1;
-		const stringNum = localStorage.TimesPlayed;
+		const stringNum = localStorage.TimesPlayedFirst;
 		int = parseInt(stringNum);
 		timesPlayed += int;
 		localStorage.setItem("TimesPlayed", timesPlayed);

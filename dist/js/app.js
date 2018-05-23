@@ -198,7 +198,7 @@ function showStart() {
 function showHighSc() {
 	var highSc = document.querySelector('.highCont');
 	highSc.style.display = "block";
-	var local = localStorage.TimesPlayed;
+	var local = localStorage.TimesPlayedFirst;
 	var localInt = parseInt(local);
 
 	for (var i = localInt; i >= 1; i--) {
@@ -548,11 +548,13 @@ function submiting() {
 	lengthStor = localStorage.length;
 	if (lengthStor === 0) {
 		timesPlayed += 1;
-		localStorage.setItem("TimesPlayed", timesPlayed);
+		var randomNum = Math.floor(Math.random() * 9000000) + 1000000;
+		var nameDa = randomNum + "TimesPlayed";
+		localStorage.setItem("TimesPlayedFirst", timesPlayed);
 	} else {
 		timesPlayed = 0;
 		timesPlayed += 1;
-		var stringNum = localStorage.TimesPlayed;
+		var stringNum = localStorage.TimesPlayedFirst;
 		int = parseInt(stringNum);
 		timesPlayed += int;
 		localStorage.setItem("TimesPlayed", timesPlayed);
