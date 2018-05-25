@@ -5,7 +5,8 @@ var browserSync = require('browser-sync').create();
 var babel = require('gulp-babel');
 var browserify = require('gulp-browserify');
 browserSync.init({
-     server: "dist/"
+     server: "dist/",
+     browser: ["google chrome"]
 });
 
 
@@ -33,6 +34,9 @@ gulp.task('scripts', function(done) {
 		plugins: ['transform-runtime'],
         presets: ['env']
     }))
+    .pipe(browserify( {
+		insertGlobals: true
+	}))
 	.pipe(gulp.dest('dist/js'))
 	browserSync.reload();
 	done()

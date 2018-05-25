@@ -4,7 +4,7 @@ let stars = 3;
 let int = 0;
 let counting = 0;
 let moves = 0;
-let timesPlayed = 999;
+let timesPlayed = 0;
 let lengthStor = 0;
 let gameLength = 0;
 let matched = 0;
@@ -13,7 +13,15 @@ let cards = [];
 let matches = [];
 let targets = [];
 let keyCode;
-
+let localStorageObj = {
+	timesPlay: timesPlayed,
+	input: [],
+	scores: [],
+	star: [],
+	timers: [],
+	move: [],
+};
+console.log(localStorageObj);
 cardsArr();
 startScreen();
 highscoreScreen();
@@ -196,16 +204,18 @@ function showStart() {
 function showHighSc() {
 	const highSc = document.querySelector('.highCont');
 	highSc.style.display = "block";
-	const local = localStorage.TimesPlayedFirst;
-	const localInt = parseInt(local);
+	if (localStorage.MatchingGameByJonas != undefined) {
+		const local = JSON.parse(localStorage.MatchingGameByJonas);
 
-	for (let i = localInt; i >= 1000; i--) {
+	for (let i = local.timesPlay - 1; i >= 0; i--) {
+		console.log(local.timesPlay);
 		const list = document.createElement('li');
 		list.classList.add('leaderList');
-		list.textContent = localStorage[i];
+		list.textContent = `${local.input[i]} - ${local.scores[i]} - ${local.star[i]} - ${local.timers[i]} sec`;
 		document.querySelector('.leaderListUL').appendChild(list);
 		}
-	hideTab();
+		hideTab();
+	}
 }
 
 /**
@@ -550,22 +560,31 @@ function addingStars() {
 
 */
 function submiting() {
+
 	document.querySelector('.submit').style.visibility = "hidden";
-	lengthStor = localStorage.TimesPlayedFirst;
-	if (localStorage.TimesPlayedFirst === undefined) {
+	if (localStorage.MatchingGameByJonas === undefined) {
 		timesPlayed += 1;
-		localStorage.setItem("TimesPlayedFirst", timesPlayed);
+		localStorageObj.timesPlay = timesPlayed;
+		localStorageObj.input.push(document.querySelector(".name_style").value);
+		localStorageObj.scores.push(score);
+		localStorageObj.star.push(stars);
+		localStorageObj.timers.push(timer);
+		localStorageObj.move.push(moves);
+		localStorage.setItem("MatchingGameByJonas", JSON.stringify(localStorageObj));
 	} else {
-		timesPlayed = 999;
 		timesPlayed += 1;
-		const stringNum = localStorage.TimesPlayedFirst;
-		int = parseInt(stringNum);
-		timesPlayed += int;
-		localStorage.setItem("TimesPlayedFirst", timesPlayed);
+		localStorageObj = JSON.parse(localStorage.MatchingGameByJonas);
+		localStorageObj.timesPlay = timesPlayed;
+		localStorageObj.input.push(document.querySelector(".name_style").value);
+		localStorageObj.scores.push(score);
+		localStorageObj.star.push(stars);
+		localStorageObj.timers.push(timer);
+		localStorageObj.move.push(moves);
+		localStorage.setItem("MatchingGameByJonas", JSON.stringify(localStorageObj));
+		console.log(localStorageObj);
 	}
-	const input = document.querySelector(".name_style").value;
-	localStorage.setItem(timesPlayed, input + "-" + score + " points" + "-" +
-		stars + " stars" + "-" + timer + " sec" + "-" + moves + " moves");
+
+
 	document.querySelector(".name_style").disabled = true;
 }
 

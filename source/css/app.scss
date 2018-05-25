@@ -331,7 +331,7 @@ button:hover {
 	box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
 	width: 90%;
 	height: 70%;
-	font-size: 25px;
+	font-size: 30px;
 	font-family: 'Source Sans Pro', sans-serif;
 	text-shadow: 2px 2px #B8B8B8;
 }
@@ -339,6 +339,7 @@ button:hover {
 .leaderList {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	margin: 5px;
 }
 /*Winning screen modal*/
