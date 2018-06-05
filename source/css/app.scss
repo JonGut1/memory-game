@@ -45,6 +45,7 @@ body {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	-webkit-tap-highlight-color: transparent;
 }
 /*Input field for the name*/
 input {
@@ -53,9 +54,9 @@ input {
 	box-sizing: border-box;
 	background-color: transparent;
 	border: 2px solid #B8B8B8;
-	-webkit-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.3);
 	font-family: 'Chicle', cursive;
 	text-align: center;
 	font-size: 30px;
@@ -95,9 +96,9 @@ input {
 	justify-content: center;
 	cursor: pointer;
 	border-radius: 10px;
-	-webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.6);
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.6);
 	background: radial-gradient(#FFC06B, #CD7600);
 	width: 120px;
 	height: 120px;
@@ -121,9 +122,9 @@ input {
 	position: absolute;
 	cursor: default;
     border-radius: 10px;
-	-webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.6);
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.6);
 	background: radial-gradient(#65E1FF, #0086A7);
 	width: 120px;
 	height: 120px;
@@ -169,22 +170,27 @@ input {
 /*menu button*/
 .menu {
 	margin-left: 10px;
-	border: 2px solid #EBA292;
+	border: 1px solid #EBA292;
+	border-radius: 10px;
 	margin-right: 20px;
 }
 /*Menu button hovering*/
 .menu:hover {
-	border: 2px solid #F05A3A;
+	border: 1px solid #F05A3A;
 	background-color: #EBA292;
-
 }
 /*back button*/
 .backB {
-	margin: 30px;
-	margin-bottom: 0px;
-	width: 70px;
-	height: 30px;
-	font-size: 10px;
+	width: 3em;
+	height: 2em;
+	margin-left: 10px;
+	border: 1px solid #EBA292;
+	border-radius: 10px;
+	margin-right: 20px;
+}
+.backB:hover {
+	border: 1px solid #F05A3A;
+	background-color: #EBA292;
 }
 /*restart button*/
 .pa {
@@ -217,23 +223,23 @@ input {
 }
 /*Button styling*/
 button {
-	-webkit-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.2);
 	font-family: 'Source Sans Pro', sans-serif;
 	text-align: center;
 	font-size: 15px;
 	border: 5px solid #EBA292;
 	background-color: #F05A3A;
+	transition: 0.3s;
 }
 /*Button hover change*/
 button:hover {
 	cursor: pointer;
-	-webkit-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 30px 5px rgba(0,0,0,0.75);
 	border: 5px solid #F05A3A;
 	background-color: #EBA292;
+	transition: 0.3s;
+	transform: scale(1.1);
 }
 /*submit button for submiting the name into the localStorage*/
 .submit {
@@ -242,6 +248,7 @@ button:hover {
 	width: 100px;
 	height: 40px;
 	font-size: 10px;
+	border: 1px solid #EBA292;
 }
 /*Submit hover change*/
 .submit:hover {
@@ -249,6 +256,7 @@ button:hover {
 	margin: 30px;
 	width: 100px;
 	height: 40px;
+	border: 1px solid #F05A3A;
 }
 /*Start button*/
 .staButton {

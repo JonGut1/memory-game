@@ -5,8 +5,12 @@
 /*Content change up to 320 px screen width*/
 @media screen and (max-width: 321px) {
 	.card, .back {
-		width: 55px;
-		height: 55px;
+		-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+		-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+		width: 70px;
+		height: 70px;
+		margin: 0px;
 	}
 	body {
 		margin: 0px;
@@ -46,7 +50,7 @@
 		font-size: 20px;
 	}
 	.menu {
-		width: 12vw;
+		width: 17vw;
 		height: 8vw;
 		font-size: 10px;
 		margin: auto;
@@ -70,6 +74,8 @@
 		height: 88vh;
 	}
 	.deck {
+		display: flex;
+		justify-content: space-between;
 		width: 100%;
 		height: 100%;
 	}
@@ -105,6 +111,9 @@
 		width: 17vw;
 		height: 17vw;
 	}
+	.back .fa {
+		font-size: 30px;
+	}
 	.modal {
 		width: 99vw;
 		height: 99vw;
@@ -120,12 +129,12 @@
 	}
 	.menu {
 		width: 50px;
-		height: 25px;
+		height: 7vw;
 		font-size: 12px;
 	}
 	.start {
-		width: 99vw;
-		height: 99vw;
+		width: 97vw;
+		height: 100vw;
 	}
 	.highCont {
 		width: 99vw;
@@ -183,16 +192,16 @@
 		height: 10%;
 	}
 	.fa-star {
-		font-size: 13px;
+		font-size: 5.5vw;
 	}
 	.fa-repeat {
-		font-size: 25px;
+		font-size: 7vw;
 	}
 	.moves {
-		font-size: 15px;
+		font-size: 5.5vw;
 	}
 	.timeDisp {
-		font-size: 20px;
+		font-size: 5.5vw;
 	}
 	.highText {
 	font-size: 20px;
