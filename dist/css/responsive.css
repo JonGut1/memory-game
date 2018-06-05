@@ -94,8 +94,8 @@
   .back .fa {
     font-size: 30px; }
   .modal {
-    width: 99vw;
-    height: 99vw; }
+    width: 97vw;
+    height: 100vw; }
   .winning {
     width: 99vw;
     height: 99vw; }
@@ -106,13 +106,15 @@
   .menu {
     width: 50px;
     height: 7vw;
-    font-size: 12px; }
+    font-size: 12px;
+    text-align: center;
+    padding: 0px; }
   .start {
     width: 97vw;
     height: 100vw; }
   .highCont {
-    width: 99vw;
-    height: 99vw; }
+    width: 97vw;
+    height: 100vw; }
   .buttonCont {
     margin-top: 30px; }
   .highButton {
@@ -165,7 +167,9 @@
     border-bottom: 3px solid silver;
     padding-right: 10px; }
   .backB {
+    text-align: center;
     margin: 10px;
     margin-bottom: 0px;
+    padding: 0px;
     width: 15vw;
     height: 10vw; } }
